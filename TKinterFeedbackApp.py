@@ -1,8 +1,16 @@
 from tkinter import *
 from tkinter import ttk
-
+from tkinter import messagebox
 class GiveFeedback:
       def __init__(self , master):
+          master.title('Pyton feedback ')
+          master.configure(background = '#e1d8b9')
+          self.style = ttk.Style()
+          self.style.configure('TFrame' , background = '#e1d8b9')
+          self.style.configure('TButton', background = '#e1d8b9')
+          self.style.configure('TLabel' , background = '#e1d8b9')
+
+
           self.Frame_Header = ttk.Frame(master)
           self.Frame_Header.pack()
           self.My_logo = PhotoImage(file = 'python_logo.gif').subsample(3,3)
@@ -23,10 +31,19 @@ class GiveFeedback:
           self.Entry_mail.grid(row = 1 , column =1)
           self.Entry_comments.grid(row = 3 , column = 0 , columnspan =2, padx = 5)
          
-          ttk.Button(self.Frame_content , text = 'Submit').grid(row = 4,column =0, padx=5, sticky = 'e')
-          ttk.Button(self.Frame_content , text = 'Clear').grid(row = 4, column =1, padx=5, sticky = 'w')
+          ttk.Button(self.Frame_content , text = 'Submit',command = self.submit).grid(row = 4,column =0, padx=5, sticky = 'e')
+          ttk.Button(self.Frame_content , text = 'Clear', command = self.clear).grid(row = 4, column =1, padx=5, sticky = 'w')
 
-
+      def submit(self):
+            print('Name: {}'.format(self.Entry_name.get()))
+            print('Email: {}'.format(self.Entry_mail.get()))
+            print('Comments: {}'.format(self.Entry_comments.get(1.0,'end')))
+            self.clear()
+            messagebox.showinfo(title = ' Learning Python feedback' ,message=' Message Submitted')
+      def clear(self):
+            self.Entry_name.delete(0,'end')
+            self.Entry_mail.delete(0,'end')
+            self.Entry_comments.delete(1.0, 'end')
 def main():
     root = Tk()
     feedback = GiveFeedback(root)
