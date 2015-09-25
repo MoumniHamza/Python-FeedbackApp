@@ -25,9 +25,9 @@ class GiveFeedback:
           ttk.Label(self.Frame_content , text ='Email').grid(row =0 , column =1, padx=5, sticky = 'sw')
           ttk.Label(self.Frame_content , text ='Comments').grid(row =2 , column=0, padx=5, sticky = 'sw')
 
-          self.Entry_name = ttk.Entry(self.Frame_content , width = 24, font=('Arial',10))
-          self.Entry_mail = ttk.Entry(self.Frame_content , width = 24,font=('Arial',10))
-          self.Entry_comments =Text(self.Frame_content , width = 50 ,height = 10,font=('Arial',10))
+          self.Entry_name = ttk.Entry(self.Frame_content , width = 24, font=('Arial',11))
+          self.Entry_mail = ttk.Entry(self.Frame_content , width = 24,font=('Arial',11))
+          self.Entry_comments =Text(self.Frame_content , width = 50 ,height = 10,font=('Arial',12))
           self.Entry_name.grid(row =1, column =0)
           self.Entry_mail.grid(row = 1 , column =1)
           self.Entry_comments.grid(row = 3 , column = 0 , columnspan =2, padx = 5)
